@@ -84,13 +84,14 @@ header {
 .hero {
     background: linear-gradient(347deg, #609bc2, #094078);
     text-align: center;
-    padding: 120px 0 80px;
+    padding: 116px 0 84px;
     color: white;
 }
 
 .hero h1 {
     font-family: 'Playfair Display', serif;
     font-size: 3.5rem;
+    animation: fadeInUp 1s ease 0.2s both;
 }
 
 .hero p {
@@ -98,4 +99,18 @@ header {
     max-width: 620px;
     margin: 0 auto 20px;
     text-align: center;
+    animation: fadeInUp 1s ease 0.2s both;
+
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
