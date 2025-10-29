@@ -98,7 +98,7 @@ header {
 .hero p {
     font-size: 1.2rem;
     max-width: 620px;
-    margin: 0 auto 20px;
+    margin: 0 auto 37px;
     text-align: center;
     animation: fadeInUp 1s ease 0.2s both;
 
@@ -116,12 +116,26 @@ header {
     }
 }
 
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
 .btn {
+    font-size: 1.2rem;
     border-radius: 50px;
-    border: 2px solid white;
     font-weight: 600;
     cursor: pointer;
     letter-spacing: 1px;
     text-transform: uppercase;
-    padding: 11px 15px;
+    padding: 16px 17px;
+}
+
+.btn-primary {
+    background-color: hwb(191deg 28.25% 27.25%);
+}
+.btn-primary:hover {
+    background-color: hwb(191 23% 27% / 0.816);
+    transform: scale(1.03);
 }
