@@ -123,19 +123,30 @@ header {
 }
 
 .btn {
-    font-size: 1.2rem;
+    font-size: 1rem;
     border-radius: 50px;
     font-weight: 600;
     cursor: pointer;
     letter-spacing: 1px;
     text-transform: uppercase;
-    padding: 16px 17px;
+    padding: 13px 18px;
 }
 
 .btn-primary {
-    background-color: hwb(191deg 28.25% 27.25%);
+    background-color: #a9a9a9bf;
+    ;
 }
+
 .btn-primary:hover {
-    background-color: hwb(191 23% 27% / 0.816);
     transform: scale(1.03);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid white;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: var(--primary);
 }
