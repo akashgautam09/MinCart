@@ -80,3 +80,22 @@ header {
     display: flex;
     gap: 1.3rem;
 }
+
+.hero {
+    background: linear-gradient(347deg, #609bc2, #094078);
+    text-align: center;
+    padding: 120px 0 80px;
+    color: white;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 620px;
+    margin: 0 auto 20px;
+    text-align: center;
+}
