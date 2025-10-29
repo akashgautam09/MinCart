@@ -1,12 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HomeStyle - Modern Home Decor</title>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">Min<span>Cart</span></div>
+
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+
+                <div class="nav-icons">
+                    <div class="icon-btn" aria-label="Search">
+                        <img src="svgs/search.svg" alt="">
+                </div>
+                    <div class="icon-btn" aria-label="Search">
+                        <img src="svgs/profile.svg" alt="">
+                </div>
+                    <div class="icon-btn" aria-label="Search">
+                        <img src="svgs/heart.svg" alt="">
+                </div>
+                    <div class="icon-btn" aria-label="Search">
+                        <img src="svgs/cart.svg" alt="">
+                </div>
+
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
     <script src="script.js"></script>
 </body>
+
 </html>
