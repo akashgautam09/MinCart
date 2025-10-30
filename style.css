@@ -216,6 +216,12 @@ header {
     transition: var(--transition);
 }
 
+.product-card:hover{
+    transform: scale(1.02);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.296);
+    transition: var(--transition);
+}
+
 .product-grid {
     display: grid;
     column-gap: 1.7rem;
@@ -236,12 +242,13 @@ header {
 }
 
 .product-info{
-    padding: 15px;
+    padding: 1.1rem;
+    padding-bottom: 1.7rem;
     line-height: 2;
 }
 
 .add-to-cart{
-padding: 7px 72px;
+padding: 10px 69px;
     font-size: 1rem;
     color: white;
     background: var(--primary);
@@ -249,3 +256,4 @@ padding: 7px 72px;
     font-weight: 600;
     margin: 9px auto 0 4px;
 }
+
