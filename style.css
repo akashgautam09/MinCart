@@ -293,13 +293,16 @@ header {
 }
 
 .add-to-cart {
-    padding: 10px 69px;
+    min-width: 101%;
+    height: 2rem;
+    position: relative;
+    bottom: 0;
     font-size: 1rem;
     color: white;
     background: var(--primary);
     border-radius: 7px;
     font-weight: 600;
-    margin: 9px auto 0 4px;
+    margin: 9px auto;
     cursor: pointer;
 }
 
