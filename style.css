@@ -67,7 +67,7 @@ header {
 }
 
 .icon-btn {
-    background: none;
+    /* background: none; */
     border: none;
     font-size: 1.2rem;
     color: var(--dark);
@@ -113,6 +113,19 @@ header {
 .nav-icons {
     display: flex;
     gap: 1.3rem;
+}
+
+.cart-count{
+       position: absolute;
+    border-radius: 50px;
+    background-color: #3498db;
+    font-weight: 600;
+    font-size: 0.2rem;
+    transition: var(--transition);
+    top: -13px;
+    right: -8px;
+    width: 19px;
+    height: 19px;
 }
 
 .icon-btn:hover {
