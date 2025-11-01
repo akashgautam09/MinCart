@@ -34,9 +34,17 @@ function onloadproducts() {
     let itemcount=0;
         addtocart.forEach(btn => {
             btn.addEventListener("click", () => {
-                console.log("clicked");
                 itemcount++;
                 cartcount.textContent=itemcount;
+                btn.textContent='Added!'
+                btn.style.background='#016601'
+                if(itemcount>0){
+                    cartcount.style.border='1px solid #477ea2'
+                }
+                setTimeout(() => {
+                    btn.textContent='Add to Cart'
+                    btn.style.background=''
+                }, 1500);
             });
         });
 }
