@@ -24,7 +24,7 @@ const items = [
         original_price: 649,
         current_price: 649,
         is_discount: false,
-        is_new: true
+        is_new: false
     },
     {
         id: '004',
@@ -34,5 +34,29 @@ const items = [
         current_price: 179,
         is_discount: false,
         is_new: true
+    }
+];
+
+const categories = [
+    {
+        id: '001',
+        image: 'images/Livingroom.png',
+        title: 'Living Room',
+        description: 'Sofas, coffee tables, and more',
+        link: '#'
+    },
+    {
+        id: '002',
+        image: 'images/Bedroom.png',
+        title: 'Bedroom',
+        description: 'Beds, nightstands, and more',
+        link: '#'
+    },
+    {
+        id: '003',
+        image: 'images/Dining.png',
+        title: 'Dining Room',
+        description: 'Dining tables, chairs, and more',
+        link: '#'
     }
 ];
