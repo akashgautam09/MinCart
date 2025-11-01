@@ -12,7 +12,7 @@ function onloadproducts() {
                 <div class="product-img">
                     <img src="${item.image}" alt="${item.item_name}">
                     ${item.is_new ? '<div class="product-badge badge1">New</div>' : ''}
-                    ${item.is_discount ? `<div class="product-badge badge2">-${Math.round(((item.original_price-item.current_price)/item.original_price)*100)}%</div>` : ''}
+                    ${item.is_discount ? `<div class="product-badge badge2">-${Math.round(((item.original_price - item.current_price) / item.original_price) * 100)}%</div>` : ''}
                     <div class="product-actions">
                         <button class="action-btn" aria-label="Add to Wishlist"></button>
                     </div>
@@ -28,7 +28,19 @@ function onloadproducts() {
             </div>
         `;
     });
+    
+    const addtocart = document.querySelectorAll(".add-to-cart");
+    const cartcount = document.querySelector(".cart-count");
+    let itemcount=0;
+        addtocart.forEach(btn => {
+            btn.addEventListener("click", () => {
+                console.log("clicked");
+                itemcount++;
+                cartcount.textContent=itemcount;
+            });
+        });
 }
+
 function loadcategories() {
     const productcategories = document.querySelector('.category-grid');
     if (!productcategories) return;
