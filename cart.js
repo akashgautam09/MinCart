@@ -14,7 +14,7 @@ function saveCart(cart) {
 function addToCart(product) {
     let cart = getCart();
     let existing = cart.find(p => p.id === product.id);
-    if (existing) {
+    if (existing){
         existing.qty += 1;
     }
     else {
