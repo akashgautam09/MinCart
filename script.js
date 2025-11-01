@@ -31,13 +31,23 @@ function onloadproducts() {
     
     const addtocart = document.querySelectorAll(".add-to-cart");
     const cartcount = document.querySelector(".cart-count");
-    let itemcount=0;
-        addtocart.forEach(btn => {
-            btn.addEventListener("click", () => {
-                itemcount++;
+
+    let itemcount = parseInt(localStorage.getItem("cartCount")) || 0;
+cartcount.textContent = itemcount;
+if(itemcount>0){
+    cartcount.style.border='1px solid #477ea2'
+}
+else{
+    cartcount.textContent='';
+}
+
+addtocart.forEach(btn => {
+    btn.addEventListener("click", () => {
+        itemcount++;
                 cartcount.textContent=itemcount;
                 btn.textContent='Added!'
                 btn.style.background='#016601'
+                localStorage.setItem("cartcount",itemcount);
                 if(itemcount>0){
                     cartcount.style.border='1px solid #477ea2'
                 }
