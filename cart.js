@@ -6,6 +6,11 @@ function getCart(){
     return data ? JSON.parse(data) : [];
 }
 
+function saveCart(){
+localStorage.setItem(CART_STORAGE_KEY,JSON.stringify(cart));
+updateCartCountBadge();
+}
+
 function renderCart() {
     const container = document.getElementById("cartItems");
     const emptyMsg = document.getElementById("cartEmpty");
