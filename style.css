@@ -115,10 +115,10 @@ header {
     gap: 1.3rem;
 }
 
-.cart-count{
-       position: absolute;
+.cart-count {
+    position: absolute;
     border-radius: 50px;
-    background-color: #3498db;
+    background-color: #477ea2;
     font-weight: 600;
     font-size: 0.2rem;
     transition: var(--transition);
@@ -304,11 +304,11 @@ header {
     z-index: 1;
 }
 
-.badge1{
+.badge1 {
     top: 15px;
 }
 
-.badge2{
+.badge2 {
     top: 37px;
 }
 
@@ -504,7 +504,7 @@ footer {
 .social-links a {
     width: 40px;
     height: 40px;
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
     transition: var(--transition);
 }
@@ -519,6 +519,7 @@ footer {
     .hero h1 {
         font-size: 3rem;
     }
+
     .navbar {
         flex-wrap: wrap;
     }
