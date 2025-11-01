@@ -297,7 +297,6 @@ header {
 
 .product-badge {
     position: absolute;
-    left: 15px;
     background: var(--accent);
     color: white;
     padding: 5px 12px;
@@ -308,11 +307,12 @@ header {
 }
 
 .badge1 {
-    top: 15px;
+    top: 0px;
 }
 
 .badge2 {
-    top: 37px;
+    bottom: -4px;
+    right: -8px;
 }
 
 .product-img img {
