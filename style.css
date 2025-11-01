@@ -118,14 +118,17 @@ header {
 .cart-count {
     position: absolute;
     border-radius: 50px;
-    background-color: #477ea2;
+    border: 2px solid #477ea2;
     font-weight: 600;
-    font-size: 0.2rem;
+    font-size: 0.7rem;
     transition: var(--transition);
-    top: -13px;
+    top: -9px;
     right: -8px;
-    width: 19px;
-    height: 19px;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .icon-btn:hover {
