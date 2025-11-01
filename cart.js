@@ -24,6 +24,13 @@ function addToCart(product) {
     showAddFeedback(product.button);
 }
 
+function removeFromCart(productId) {
+    let cart = getCart();
+    cart = cart.filter(item => item.id !== productId);
+    saveCart(cart);
+    renderCart();
+}
+
 function updateQuantity(productId, newQty) {
     if(newQty<1) return removeFromCart(productId);
     let cart = getCart();
@@ -38,9 +45,10 @@ function updateQuantity(productId, newQty) {
 function updateCartCountBadge() {
     const cart = getCart();
     const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
-    const cartcount = document.querySelector(".cart-count");
-    cartcount.textContent = totalItems > 0 ? totalItems : "";
-    cartcount.style.border = totalItems > 0 ? "1px solid #477ea2" : "none";
+    document.querySelectorAll(".cart-count").forEach(badge => {
+        badge.textContent = totalItems > 0 ? totalItems : "";
+        badge.style.border = totalItems > 0 ? "1px solid #477ea2" : "none";
+    });
 }
 
 function showAddFeedback(button) {
@@ -103,10 +111,13 @@ window.removeItem = removeFromCart;
 
 
 function initAddToCartButtons() {
-    document.querySelectorAll(".add-to-cart").forEach((btn) => {
-        btn.addEventListener("click", () => {
-            const productId = btn.getAttribute("data-id");
+    document.querySelectorAll(".add-to-cart").forEach(button => {
+        button.addEventListener("click", () => {
+            console.log("clicked")
+            const productId = button.getAttribute("data-id");
             const product = window.items.find(p => p.id === productId);
+            if (!product) return;
+            
             const cartItem = {
                 id: product.id,
                 name: product.item_name,
@@ -117,3 +128,9 @@ function initAddToCartButtons() {
         })
     })
 }
+
+window.addEventListener("DOMContentLoaded", () => {
+    updateCartCountBadge();
+    initAddToCartButtons();
+    renderCart();
+});
