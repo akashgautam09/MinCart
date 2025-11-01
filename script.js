@@ -21,7 +21,7 @@ function onloadproducts() {
                     <h3 class="product-title">${item.item_name}</h3>
                     <div class="product-price">
                         <span class="current-price">$${item.current_price}</span>
-                        ${item.discount_percentage > 0 ? `<span class="old-price">$${item.original_price}</span>` : ''}
+                        ${item.is_discount ? `<span class="old-price">$${item.original_price}</span>` : ''}
                     </div>
                     <button class="add-to-cart">Add to Cart</button>
                 </div>
@@ -29,6 +29,28 @@ function onloadproducts() {
         `;
     });
 }
+function loadcategories() {
+    const productcategories = document.querySelector('.category-grid');
+    if (!productcategories) return;
 
+    let html = '';
+    categories.forEach(category => {
+        html += `
+            <div class="category-card">
+                <img src="${category.image}" alt="${category.title}" class="category-img">
+                <div class="category-overlay">
+                    <h3 class="category-title">${category.title}</h3>
+                    <p>${category.description}</p>
+                    <a href="${category.link}" class="btn btn-primary1 category-btn">Explore</a>
+                </div>
+            </div>
+        `;
+    });
+
+    productcategories.innerHTML = html;
+}
 // Load products when the DOM is ready
-window.addEventListener('DOMContentLoaded', onloadproducts);
+window.addEventListener('DOMContentLoaded', () => {
+    onloadproducts();
+    loadcategories();
+});
