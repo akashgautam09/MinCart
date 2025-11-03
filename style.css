@@ -310,8 +310,9 @@ header {
 }
 
 .badge2 {
-    bottom: -4px;
-    right: -8px;
+    font-size: 1rem;
+    padding: 0 2px;
+    color: var(--secondary);
 }
 
 .product-img img {
@@ -655,4 +656,60 @@ footer {
 .remove-btn:hover {
     background: #fdf2f2;
     border-radius: 50%;
+}
+
+.price-details {
+    border: 1px solid black;
+    width: 450px;
+    height: 450px;
+}
+
+.price-summary {
+    background: #f9f9f9;
+    padding: 1.2rem;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    font-size: 0.95rem;
+    margin-top: 1rem;
+}
+
+.price-summary-title {
+    margin: 0 0 1rem 0;
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: 600;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0.5rem;
+}
+
+.price-breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price-row.total-row {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px dashed #ccc;
+    font-size: 1.1rem;
+    color: #222;
+}
+
+.free-shipping-note {
+    margin: 1rem 0 0 0;
+    font-size: 0.85rem;
+    color: #016601;
+    text-align: center;
+    font-style: italic;
+}
+
+.free-shipping-note strong {
+    color: #d35400;
 }
