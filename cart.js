@@ -14,7 +14,7 @@ function saveCart(cart) {
 function addToCart(product) {
     let cart = getCart();
     let existing = cart.find(p => p.id === product.id);
-    if (existing){
+    if (existing) {
         existing.qty += 1;
     }
     else {
@@ -32,11 +32,11 @@ function removeFromCart(productId) {
 }
 
 function updateQuantity(productId, newQty) {
-    if(newQty<1) return removeFromCart(productId);
+    if (newQty < 1) return removeFromCart(productId);
     let cart = getCart();
-    const item = cart.find(t=> t.id === productId)
-    if(item){
-        item.qty=newQty;
+    const item = cart.find(t => t.id === productId)
+    if (item) {
+        item.qty = newQty;
         saveCart(cart);
         renderCart();
     }
@@ -69,6 +69,7 @@ function renderCart() {
     const emptyMsg = document.getElementById("cartEmpty");
     const totalBox = document.getElementById("cartTotal");
     const totalSpan = document.getElementById("totalPrice");
+    const itemsprices = document.getElementById("items-price")
 
     if (!container) return; // not on cart page
 
@@ -100,10 +101,59 @@ function renderCart() {
                 <img src="svgs/trash.svg" alt="Remove">
             </button>
         </div>
-    `).join("");
+
+        `).join("");
 
     const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-    totalSpan.textContent = total.toFixed(2);
+
+    if (itemsprices) {
+        const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+        const discount = cart.reduce((sum, item) => sum + (item.originalprice - item.price) * item.qty, 0);
+        const taxRate = 0.08; // 8% tax (adjust as needed)
+        const tax = subtotal * taxRate;
+        const shipping = subtotal > 50 ? 0 : 5.99; // Free shipping over $50
+        const total = subtotal + tax + shipping;
+
+        itemsprices.innerHTML = `
+        <div class="price-summary">
+            <h3 class="price-summary-title">PRICE DETAILS</h3>
+            
+            <div class="price-breakdown">
+                <div class="price-row">
+                    <span>Subtotal</span>
+                    <span>$${subtotal.toFixed(2)}</span>
+                </div>
+
+                <div class="price-row">
+                    <span>Discount</span>
+                    <span>-$${discount.toFixed(2)}</span>
+                </div>
+                
+                <div class="price-row">
+                    <span>Tax (8%)</span>
+                    <span>$${tax.toFixed(2)}</span>
+                </div>
+                
+                <div class="price-row">
+                    <span>Shipping</span>
+                    <span>${shipping === 0 ? '<em style="color:#016601;">FREE</em>' : '$' + shipping.toFixed(2)}</span>
+                </div>
+                
+                <div class="price-row total-row">
+                    <strong>Total Amount</strong>
+                    <strong>$${total.toFixed(2)}</strong>
+                </div>
+            </div>
+
+            ${subtotal > 50 ? '' : `
+                <p class="free-shipping-note">
+                    <em>Add <strong>$${(50 - subtotal).toFixed(2)}</strong> more for <strong>FREE shipping</strong>!</em>
+                </p>
+            `}
+        </div>
+    `;
+        totalSpan.textContent = total.toFixed(2);
+    }
 }
 
 window.updateQty = updateQuantity;
@@ -117,14 +167,15 @@ function initAddToCartButtons() {
             const productId = button.getAttribute("data-id");
             const product = window.items.find(p => p.id === productId);
             if (!product) return;
-            
+
             const cartItem = {
                 id: product.id,
                 name: product.item_name,
                 price: product.current_price,
+                originalprice: product.original_price,
                 image: product.image
             };
-            addToCart({ ...cartItem, button});
+            addToCart({ ...cartItem, button });
         })
     })
 }
