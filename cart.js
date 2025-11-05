@@ -82,7 +82,7 @@ function renderCart() {
         itemsprices.style.display = "none";
         return;
     }
-    
+
     emptyMsg.style.display = "none";
     totalBox.style.display = "block";
     itemsprices.style.display = "block";
@@ -170,7 +170,12 @@ function initAddToCartButtons() {
         button.addEventListener("click", () => {
             console.log("clicked")
             const productId = button.getAttribute("data-id");
-            const product = window.items.find(p => p.id === productId);
+            
+            const allSources = [window.items, window.explore1, window.categories]
+                .filter(Boolean) // ignore undefined
+                .flat(); // merge all arrays
+
+            const product = allSources.find(p => p.id === productId);
             if (!product) return;
 
             const cartItem = {
