@@ -79,18 +79,24 @@ function renderCart() {
         container.innerHTML = "";
         emptyMsg.style.display = "block";
         totalBox.style.display = "none";
+        itemsprices.style.display = "none";
         return;
     }
-
+    
     emptyMsg.style.display = "none";
     totalBox.style.display = "block";
+    itemsprices.style.display = "block";
 
     container.innerHTML = cart.map(item => `
         <div class="cart-item">
             <img src="${item.image}" alt="${item.name}" class="cart-item-img">
             <div class="cart-item-details">
                 <h3 class="cart-item-title">${item.name}</h3>
-                <p class="cart-item-price">$${item.price.toFixed(2)}</p>
+                
+                <span class="old-price" style="color: #878787;font-size:0.8rem;text-decoration: line-through;">$${item.originalprice}</span>
+                <span class="cart-item-price">&nbsp;$${item.price.toFixed(2)}</span>
+                <span style="color: #0e6706ff;font-size:0.8rem;">${Math.round(((item.originalprice - item.price) / item.originalprice) * 100)}% off</span>
+
             </div>
             <div class="cart-item-quantity">
                 <button class="qty-btn" onclick="updateQty('${item.id}', ${item.qty - 1})">-</button>
@@ -104,7 +110,6 @@ function renderCart() {
 
         `).join("");
 
-    const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
 
     if (itemsprices) {
         const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
@@ -126,7 +131,7 @@ function renderCart() {
 
                 <div class="price-row">
                     <span>Discount</span>
-                    <span>-$${discount.toFixed(2)}</span>
+                    <span style="color: #2e8b57;">-$${discount.toFixed(2)}</span>
                 </div>
                 
                 <div class="price-row">
