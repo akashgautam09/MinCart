@@ -11,6 +11,7 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cart.css">
 </head>
 
 <body>
@@ -46,25 +47,29 @@
     </header>
 
 
-    <main class="container" style="margin-top: 4rem; margin-bottom: 4rem;">
-        <h1 class="section-title" style="text-align:center; margin-bottom:2rem;">Your Cart</h1>
+    <main class="container" style="margin-top: 3rem; margin-bottom: 4rem;">
+        <h1 class="section-title" style="text-align:center; margin-bottom:1.6rem;">Your Cart</h1>
+        <div class="item-details-cont">
 
-        <div id="cartItems" class="cart-grid">
-            <!-- items will be injected here by JS -->
-        </div>
-        <div class="items-pricing" id="items-price">
+            <div id="cartItems" class="cart-grid">
+                <!-- items will be injected here by JS -->
+            </div>
 
+            <div class="price-checkout">
+                <div class="items-pricing" id="items-price">
+                    <!-- items will be injected here by JS -->
+                </div>
+                <div class="cart-total" id="cartTotal"
+                    style="display:none; text-align:right; margin-top:2rem; font-size:1.2rem;">
+                    <button class="btn btn-primary" style="margin-left:1rem;">Checkout</button>
+                </div>
+            </div>
         </div>
 
         <div id="cartEmpty" style="text-align:center; display:none;">
             <p>Your cart is empty. <a href="index.html">Continue shopping</a></p>
         </div>
 
-        <div class="cart-total" id="cartTotal"
-            style="display:none; text-align:right; margin-top:2rem; font-size:1.2rem;">
-            <strong>Total: $<span id="totalPrice">0</span></strong>
-            <button class="btn btn-primary" style="margin-left:1rem;">Checkout</button>
-        </div>
     </main>
 
     <footer>
