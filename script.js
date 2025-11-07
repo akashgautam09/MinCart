@@ -18,9 +18,9 @@ function onloadproducts() {
                 <div class="product-info">
                     <h3 class="product-title">${item.item_name}</h3>
                     <div class="product-price">
-                        <span class="current-price">$${item.current_price}</span>
-                        ${item.is_discount ? `<span class="old-price" style="color: #878787;text-decoration: line-through;">$${item.original_price}</span>` : ''}
-                        ${item.is_discount ? `<span class="badge2">${Math.round(((item.original_price - item.current_price) / item.original_price) * 100)}%</span>` : ''}
+                        <span class="current-price">₹${item.current_price}</span>
+                        ${item.is_discount ? `<span class="old-price" style="color: #878787;text-decoration: line-through;">₹${item.original_price}</span>` : ''}
+                        ${item.is_discount ? `<span class="badge2">${Math.round(((item.original_price - item.current_price) / item.original_price) * 100)}% off</span>` : ''}
                         </div>
                     <button class="add-to-cart" data-id="${item.id}">Add to Cart</button>
                 </div>
@@ -54,3 +54,12 @@ window.addEventListener('DOMContentLoaded', () => {
     onloadproducts();
     loadcategories();
 });
+
+// Mobile Menu Toggle
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+const menuImg = menuToggle.querySelector('img');
+menuToggle.addEventListener("click", () => {
+const isActive = navLinks.classList.toggle('active');
+menuImg.src = isActive ? 'svgs/close.svg' : 'svgs/hamburger.svg';
+})
