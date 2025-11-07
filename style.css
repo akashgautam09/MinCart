@@ -67,9 +67,8 @@ header {
 }
 
 .icon-btn {
-    /* background: none; */
+    background: none;
     border: none;
-    font-size: 1.2rem;
     color: var(--dark);
     cursor: pointer;
     position: relative;
@@ -78,8 +77,11 @@ header {
 
 .icon-btn img {
     filter: invert(0);
-    height: 20px;
-    width: 20px;
+    width: 1.5rem;
+}
+
+.menu-toggle {
+    display: none;
 }
 
 .nav-links {
@@ -112,19 +114,19 @@ header {
 
 .nav-icons {
     display: flex;
-    gap: 1.3rem;
+    gap: 1rem;
 }
 
 .cart-count {
     position: absolute;
     border-radius: 50px;
     font-weight: 600;
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     transition: var(--transition);
-    top: -9px;
+    top: -13px;
     right: -8px;
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -332,7 +334,7 @@ header {
     cursor: pointer;
 }
 
-.current-price{
+.current-price {
     color: #2e8b57;
 }
 
@@ -538,11 +540,12 @@ footer {
     }
 
     .nav-links.active {
+        transition: var(--transition);
         display: flex;
     }
 
     .hero {
-        padding: 100px 0 60px;
+        padding: 80px 0 70px;
     }
 
     .hero h1 {
@@ -560,7 +563,16 @@ footer {
 
 @media (max-width: 576px) {
     .hero h1 {
-        font-size: 2.2rem;
+        font-size: 1.77rem;
+    }
+
+    .hero p {
+        margin: 0 11px 0 11px;
+        font-size: 0.77rem;
+    }
+
+    .hero {
+        padding: 74px 0 69px;
     }
 
     .section-title h2 {
@@ -569,5 +581,25 @@ footer {
 
     .product-actions {
         opacity: 1;
+    }
+
+    .logo {
+        font-size: 1.4rem;
+    }
+
+    .icon-btn img {
+        height: 1.1rem;
+    }
+
+    .cart-count {
+        top: -11px;
+        left: 12px;
+        height: 15px;
+        width: 15px;
+        font-size: 0.5rem;
+    }
+
+    .nav-icons {
+        gap: 0.25rem;
     }
 }
