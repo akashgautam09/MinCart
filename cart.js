@@ -88,26 +88,34 @@ function renderCart() {
     itemsprices.style.display = "block";
 
     container.innerHTML = cart.map(item => `
-        <div class="cart-item">
-            <img src="${item.image}" alt="${item.name}" class="cart-item-img">
-            <div class="cart-item-details">
-                <h3 class="cart-item-title">${item.name}</h3>
-                
-                <span class="old-price" style="color: #878787;font-size:0.8rem;text-decoration: line-through;">$${item.originalprice}</span>
-                <span class="cart-item-price">&nbsp;$${item.price.toFixed(2)}</span>
-                <span style="color: #0e6706ff;font-size:0.8rem;">${Math.round(((item.originalprice - item.price) / item.originalprice) * 100)}% off</span>
+<div class="cart-item">
 
-            </div>
-            <div class="cart-item-quantity">
-                <button class="qty-btn" onclick="updateQty('${item.id}', ${item.qty - 1})">-</button>
-                <input type="number" value="${item.qty}" min="1" readonly>
-                <button class="qty-btn" onclick="updateQty('${item.id}', ${item.qty + 1})">+</button>
-            </div>
-            <button class="remove-btn" onclick="removeItem('${item.id}')">
-                <img src="svgs/trash.svg" alt="Remove">
-            </button>
+    <div class="img-details kmtl">
+        <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+        <div class="cart-item-details">
+            <h3 class="cart-item-title">${item.name}</h3>
+
+            <span class="old-price"
+                style="color: #878787;font-size:0.8rem;text-decoration: line-through;">₹${item.originalprice}</span>
+            <span class="cart-item-price">&nbsp;₹${item.price.toFixed(2)}</span>
+            <span style="color: #0e6706ff;font-size:0.8rem;">${Math.round(((item.originalprice - item.price) /
+                item.originalprice) * 100)}% off</span>
+
         </div>
+    </div>
+    <div class="quantity-remove kmtl">
 
+        <div class="cart-item-quantity">
+            <button class="qty-btn" onclick="updateQty('${item.id}', ${item.qty - 1})">-</button>
+            <input type="number" value="${item.qty}" min="1" readonly>
+            <button class="qty-btn" onclick="updateQty('${item.id}', ${item.qty + 1})">+</button>
+        </div>
+        <button class="remove-btn" onclick="removeItem('${item.id}')">
+            <img src="svgs/trash.svg" alt="Remove">
+        </button>
+
+    </div>
+</div>
         `).join("");
 
 
@@ -126,17 +134,17 @@ function renderCart() {
             <div class="price-breakdown">
                 <div class="price-row">
                     <span>Subtotal</span>
-                    <span>$${subtotal.toFixed(2)}</span>
+                    <span>₹${subtotal.toFixed(2)}</span>
                 </div>
 
                 <div class="price-row">
                     <span>Discount</span>
-                    <span style="color: #2e8b57;">-$${discount.toFixed(2)}</span>
+                    <span style="color: #2e8b57;">-₹${discount.toFixed(2)}</span>
                 </div>
                 
                 <div class="price-row">
                     <span>Tax (8%)</span>
-                    <span>$${tax.toFixed(2)}</span>
+                    <span>₹${tax.toFixed(2)}</span>
                 </div>
                 
                 <div class="price-row">
@@ -146,13 +154,13 @@ function renderCart() {
                 
                 <div class="price-row total-row">
                     <strong>Total Amount</strong>
-                    <strong>$${total.toFixed(2)}</strong>
+                    <strong>₹${total.toFixed(2)}</strong>
                 </div>
             </div>
 
-            ${subtotal > 50 ? '' : `
+            ${subtotal > 5000 ? '' : `
                 <p class="free-shipping-note">
-                    <em>Add <strong>$${(50 - subtotal).toFixed(2)}</strong> more for <strong>FREE shipping</strong>!</em>
+                    <em>Add <strong>₹${(5000 - subtotal).toFixed(2)}</strong> more for <strong>FREE shipping</strong>!</em>
                 </p>
             `}
         </div>
@@ -170,8 +178,8 @@ function initAddToCartButtons() {
         button.addEventListener("click", () => {
             console.log("clicked")
             const productId = button.getAttribute("data-id");
-            
-            const allSources = [window.items, window.explore1, window.categories]
+
+            const allSources = [window.items, window.explore1, window.explore2, window.explore3, window.categories]
                 .filter(Boolean) // ignore undefined
                 .flat(); // merge all arrays
 
