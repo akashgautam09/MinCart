@@ -1,38 +1,38 @@
 const items = [
     {
         id: 'I001',
-        image: 'images/Modern Sofa.png',
-        item_name: 'Nordic Minimal Sofa',
-        original_price: 1199,
-        current_price: 899,
+        image: 'images/tv_stand.png',
+        item_name: 'Jasper Rustic Wood T.V Stand',
+        original_price: 78000,
+        current_price: 71000,
         is_discount: true,
         is_new: true
     },
     {
         id: 'I002',
-        image: 'images/Coffee Table.png',
-        item_name: 'Rustic Oak Coffee Table',
-        original_price: 6000,
-        current_price: 5799,
+        image: 'images/chairs.png',
+        item_name: 'Goldfrue Premium Set of Chairs',
+        original_price: 21000,
+        current_price: 15000,
         is_discount: true,
         is_new: true
     },
     {
         id: 'I003',
-        image: 'images/Armchair.png',
-        item_name: 'Vintage Leather Armchair',
-        original_price: 700,
-        current_price: 649,
+        image: 'images/Modern Sofa.png',
+        item_name: 'Aiden Nordic Minimal Sofa',
+        original_price: 26000,
+        current_price: 23599,
         is_discount: true,
-        is_new: false
+        is_new: true
     },
     {
         id: 'I004',
-        image: 'images/Floor Lamp.png',
-        item_name: 'Arc Floor Lamp',
-        original_price: 179,
-        current_price: 179,
-        is_discount: false,
+        image: 'images/dresser.png',
+        item_name: 'Arinol Luxury Dressing Table Set',
+        original_price: 45000,
+        current_price: 41599,
+        is_discount: true,
         is_new: true
     }
 ];
@@ -139,9 +139,9 @@ const explore2 = [
     {
         id: 'F002',
         image: 'images/dresser.png',
-        item_name: 'Arinol Luxury Dressing Table',
-        original_price: 68000,
-        current_price: 64599,
+        item_name: 'Arinol Luxury Dressing Table Set',
+        original_price: 45000,
+        current_price: 41599,
         is_discount: true,
         is_new: true
     },
@@ -171,6 +171,15 @@ const explore2 = [
         current_price: 5100,
         is_discount: true,
         is_new: true
+    },
+    {
+        id: 'F006',
+        image: 'images/wardrobe.png',
+        item_name: 'Andrie 3 Door Wardrobe with Drawer',
+        original_price: 76000,
+        current_price: 64599,
+        is_discount: true,
+        is_new: true
     }
 ];
 
@@ -195,12 +204,12 @@ const explore3 = [
     },
     {
         id: 'F003',
-        image: 'images/console_table.png',
-        item_name: 'Murt Modern Console Table',
-        original_price: 20000,
-        current_price: 18000,
+        image: 'images/Coffee Table.png',
+        item_name: 'Rustic Oak Coffee Table',
+        original_price: 6000,
+        current_price: 5799,
         is_discount: true,
-        is_new: false
+        is_new: true
     },
     {
         id: 'F004',
@@ -222,12 +231,12 @@ const explore3 = [
     },
     {
         id: 'F006',
-        image: 'images/Coffee Table.png',
-        item_name: 'Rustic Oak Coffee Table',
-        original_price: 6000,
-        current_price: 5799,
+        image: 'images/console_table.png',
+        item_name: 'Murt Modern Console Table',
+        original_price: 20000,
+        current_price: 18000,
         is_discount: true,
-        is_new: true
+        is_new: false
     },
 ];
 
