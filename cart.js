@@ -76,7 +76,7 @@ function renderCart() {
     const cart = getCart();
 
     if (cart.length === 0) {
-        container.innerHTML = "";
+        container.style.display = "none";
         emptyMsg.style.display = "block";
         totalBox.style.display = "none";
         itemsprices.style.display = "none";
@@ -158,9 +158,9 @@ function renderCart() {
                 </div>
             </div>
 
-            ${subtotal > 5000 ? '' : `
+            ${subtotal > 2000 ? '' : `
                 <p class="free-shipping-note">
-                    <em>Add <strong>₹${(5000 - subtotal).toFixed(2)}</strong> more for <strong>FREE shipping</strong>!</em>
+                    <em>Add <strong>₹${(2000 - subtotal).toFixed(2)}</strong> more for <strong>FREE shipping</strong>!</em>
                 </p>
             `}
         </div>
