@@ -10,8 +10,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/checkout.css">
 </head>
 
 <body>
@@ -38,8 +39,8 @@
                         <img src="svgs/cart.svg" alt="">
                         <span class="cart-count"></span>
                     </div>
-                    <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
-                        <i class="fas fa-bars"></i>
+                    <button class="menu-toggle icon-btn" id="menuToggle" aria-label="Toggle Menu">
+                        <img src="svgs/hamburger.svg" alt=".">
                     </button>
                 </div>
             </nav>
@@ -61,13 +62,71 @@
                 </div>
                 <div class="cart-total" id="cartTotal"
                     style="display:none; text-align:right; margin-top:2rem; font-size:1.2rem;">
-                    <button class="btn btn-primary" style="margin-left:1rem;">Checkout</button>
+                    <button onclick="handleCheckout()" class="btn btn-primary"
+                        style="margin-left:1rem;">Checkout</button>
                 </div>
             </div>
         </div>
 
         <div id="cartEmpty" style="text-align:center; display:none;">
             <p>Your cart is empty. <a href="index.html">Continue shopping</a></p>
+        </div>
+
+        <!-- Registration Modal -->
+        <div id="register-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('register-modal')">&times;</span>
+                <h2>Register</h2>
+                <form id="registerForm">
+                    <input type="text" id="regUsername" placeholder="Username" required>
+                    <input type="email" id="regEmail" placeholder="Email" required>
+                    <input type="password" id="regPassword" placeholder="Password" required>
+                    <button type="submit" class="pop-btn submit-btn">Register</button>
+                </form>
+                <p>Already have an account? <a href="#" onclick="showLogin()">Login here</a></p>
+            </div>
+        </div>
+
+        <!-- Login Modal -->
+        <div id="login-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('login-modal')">&times;</span>
+                <h2>Login</h2>
+                <form id="loginForm">
+                    <input type="email" id="loginEmail" placeholder="Email" required>
+                    <input type="password" id="loginPassword" placeholder="Password" required>
+                    <button type="submit" class="pop-btn submit-btn">Login</button>
+                </form>
+                <p>Don't have an account? <a href="#" onclick="showRegister()">Register here</a></p>
+            </div>
+        </div>
+
+        <!-- Custom Message Modal -->
+        <div id="message-modal" class="modal">
+            <div class="modal-content message-content">
+                <span class="close" onclick="closeModal('message-modal')">&times;</span>
+                <p id="message-text"></p>
+                <button class="pop-btn" onclick="closeModal('message-modal')">OK</button>
+            </div>
+        </div>
+
+        <!-- Checkout Details Modal -->
+        <div id="checkout-modal" class="modal">
+            <div class="modal-content" style="width:380px;">
+                <span class="close" onclick="closeModal('checkout-modal')">×</span>
+                <h2>Customer Details</h2>
+
+                <input type="text" id="custName" placeholder="Full Name" required>
+                <input type="tel" id="custPhone" placeholder="Phone Number" required>
+                <input type="text" id="custAddress" placeholder="Delivery Address" required>
+                <input type="text" id="custCity" placeholder="City" required>
+
+                <div style="display:flex;gap:8px;justify-content:center;margin-top:15px;">
+                    <button class="pop-btn submit-btn" onclick="submitCheckout()">Place Order</button>
+                    <button class="pop-btn" style="background:#6c757d;"
+                        onclick="closeModal('checkout-modal')">Cancel</button>
+                </div>
+            </div>
         </div>
 
     </main>
@@ -129,9 +188,10 @@
         </div>
     </footer>
 
-    <script src="products.js"></script>
-    <script src="script.js"></script>
-    <script src="cart.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/checkout.js"></script>
 </body>
 
 </html>
