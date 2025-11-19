@@ -30,7 +30,7 @@
 
                 <div class="nav-icons">
                     <div class="icon-btn" aria-label="Search"><img src="svgs/search.svg" alt=""></div>
-                    <div class="icon-btn" aria-label="Profile"><img src="svgs/profile.svg" alt=""></div>
+                    <div class="icon-btn profile-btn" aria-label="Profile"><img src="svgs/profile.svg" alt=""></div>
                     <div class="icon-btn" aria-label="Wishlist"><img src="svgs/heart.svg" alt=""></div>
                     <div class="icon-btn" aria-label="Shopping Cart">
                         <a href="cart.html"><img src="svgs/cart.svg" alt=""></a>
@@ -43,6 +43,12 @@
             </nav>
         </div>
     </header>
+    
+    <div id="profile-popup" class="popup">
+        <p id="popup-username"></p>
+        <p id="popup-email"></p>
+        <button id="logoutBtn" onclick="logout()">Logout</button>
+    </div>
 
     <section class="featured-products" style="padding-top: 2rem;">
         <div class="container">

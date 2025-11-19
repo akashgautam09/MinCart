@@ -33,7 +33,7 @@
 
                 <div class="nav-icons">
                     <div class="icon-btn" aria-label="Search"><img src="svgs/search.svg" alt=""></div>
-                    <div class="icon-btn" aria-label="Profile"><img src="svgs/profile.svg" alt=""></div>
+                    <div class="icon-btn profile-btn" aria-label="Profile"><img src="svgs/profile.svg" alt=""></div>
                     <div class="icon-btn" aria-label="Wishlist"><img src="svgs/heart.svg" alt=""></div>
                     <div class="icon-btn" aria-label="Shopping Cart">
                         <img src="svgs/cart.svg" alt="">
@@ -47,6 +47,11 @@
         </div>
     </header>
 
+    <div id="profile-popup" class="popup">
+        <p id="popup-username"></p>
+        <p id="popup-email"></p>
+        <button id="logoutBtn" onclick="logout()">Logout</button>
+    </div>
 
     <main class="container" style="margin-top: 3rem; margin-bottom: 4rem;">
         <h1 class="section-title" style="text-align:center; margin-bottom:1.6rem;">Your Cart</h1>

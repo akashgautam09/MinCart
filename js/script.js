@@ -55,6 +55,61 @@ window.addEventListener('DOMContentLoaded', () => {
     loadcategories();
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+
+    function initProfilePopup() {
+        const profileBtn = document.querySelector(".profile-btn");
+        const popup = document.getElementById("profile-popup");
+        const logoutBtn = document.getElementById("logoutBtn");
+
+        if (!profileBtn || !popup) return;
+
+        profileBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+
+            const currentUser = localStorage.getItem("currentUser");
+
+            if (!currentUser) {
+                if (typeof showLogin === "function") showLogin();
+                return;
+            }
+
+            const user = JSON.parse(currentUser);
+
+            document.getElementById("popup-username").textContent = "Name: " + user.username;
+            document.getElementById("popup-email").textContent = "Email: " + user.email;
+
+            popup.style.display = popup.style.display === "block" ? "none" : "block";
+        });
+
+        document.addEventListener("click", (e) => {
+            if (!popup.contains(e.target) && !profileBtn.contains(e.target)) {
+                popup.style.display = "none";
+            }
+        });
+
+        // LOGOUT BUTTON CLICK
+        if (logoutBtn) {
+            logoutBtn.addEventListener("click", () => {
+                localStorage.removeItem("currentUser");
+
+                if (typeof showMessage === "function") {
+                    showMessage("Logged out successfully!");
+                }
+
+                popup.style.display = "none"; // Close popup
+
+                setTimeout(() => {
+                    const msgModal = document.getElementById("message-modal");
+                    if (msgModal) msgModal.style.display = "none";
+                }, 1500);
+            });
+        }
+    }
+
+    setTimeout(initProfilePopup, 200);
+});
+
 // Mobile Menu Toggle
 const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
